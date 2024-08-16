@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpg016mipycu8"]
+[gd_scene load_steps=5 format=3 uid="uid://bpg016mipycu8"]
 
 [ext_resource type="Texture2D" uid="uid://jb4kqnkevy1l" path="res://icon.svg" id="1_jous1"]
 [ext_resource type="Script" path="res://player.gd" id="1_lo2iy"]
+[ext_resource type="PackedScene" uid="uid://dj6yeewam07k4" path="res://bullet.tscn" id="2_vxdok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_my81v"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_lo2iy")
+Bullet = ExtResource("2_vxdok")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_jous1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_my81v")
+
+[node name="Marker2D" type="Marker2D" parent="."]
